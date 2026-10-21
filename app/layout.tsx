@@ -32,7 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <ClerkProvider>
-          <header className="flex h-16 items-center justify-end gap-4 border-b px-4">
+          <header className="flex h-16 items-center justify-end gap-4 border-b border-[#d9d0c6] bg-[#f4eee8] px-4 text-[#252321]">
             <Show when="signed-out">
               <SignInButton />
               <SignUpButton />
