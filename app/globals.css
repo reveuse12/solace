@@ -28,3 +28,14 @@ body {
 button, a, input, textarea, select { font: inherit; }
 
 @keyframes breathe { 50% { transform: scale(1.08); } }
+
+@keyframes viewReveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: no-preference) {
+  main > section { animation: viewReveal .55s cubic-bezier(.22,1,.36,1) both; }
+  main > section > *:nth-child(2) { animation: viewReveal .55s .06s cubic-bezier(.22,1,.36,1) both; }
+  main > section > *:nth-child(3) { animation: viewReveal .55s .12s cubic-bezier(.22,1,.36,1) both; }
+}
+@media (max-width: 760px) {
+  main > section { padding-top: 2.75rem !important; }
+  main > section h1 { font-size: 3.25rem; }
+}
