@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4eee8" />
+    <meta name="description" content="A quiet space for intentions, audio rituals, and reflection." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Solace — Make space for what matters</title>
+  </head>
+  <body>
+    <div class="onboarding" id="onboarding" hidden>
+      <div class="onboarding-inner">
+        <div class="onboarding-brand"><span class="wordmark-mark">s</span> solace</div>
+        <div class="onboarding-progress"><span id="onboarding-step-label">01 / 03</span><span class="onboarding-progress-line"><i id="onboarding-progress-fill"></i></span></div>
+        <div class="onboarding-step active" data-onboarding-step="0"><p class="eyebrow">A quiet beginning</p><h1>What should we<br /><em>call you?</em></h1><p class="onboarding-copy">This space is yours. We’ll use your name to make each check-in feel a little more personal.</p><label class="onboarding-field"><span>Your name</span><input id="onboarding-name" type="text" autocomplete="given-name" placeholder="e.g. Prayag" /></label></div>
+        <div class="onboarding-step" data-onboarding-step="1"><p class="eyebrow">Set an intention</p><h1>What would you like<br /><em>more of?</em></h1><p class="onboarding-copy">Choose the feeling you want to return to most often. You can change this anytime.</p><div class="choice-grid" id="focus-choices"><button type="button" data-focus="Clarity">Clarity</button><button type="button" data-focus="Confidence">Confidence</button><button type="button" data-focus="Rest">Rest</button><button type="button" data-focus="Connection">Connection</button></div></div>
+        <div class="onboarding-step" data-onboarding-step="2"><p class="eyebrow">Make it a rhythm</p><h1>When will you make<br /><em>space?</em></h1><p class="onboarding-copy">A gentle reminder helps a practice become yours. Pick a time that feels realistic.</p><div class="time-grid" id="time-choices"><button type="button" data-time="Morning"><strong>Morning</strong><span>Start with intention</span></button><button type="button" data-time="Evening"><strong>Evening</strong><span>Let the day soften</span></button><button type="button" data-time="Whenever feels right"><strong>Whenever feels right</strong><span>Keep it open</span></button></div></div>
+        <div class="onboarding-actions"><button class="onboarding-back" id="onboarding-back" type="button">Back</button><button class="primary-button onboarding-next" id="onboarding-next" type="button">Continue <span>→</span></button></div><button class="onboarding-skip" id="onboarding-skip" type="button">Skip for now</button>
+      </div>
+    </div>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <a class="wordmark" href="#home" aria-label="Solace home"><span class="wordmark-mark">s</span><span>solace</span></a>
+        <div class="side-note">A daily practice<br />for your inner world.</div>
+        <nav class="nav-list">
+          <a class="nav-link active" href="#home" data-view="home"><span>01</span>Today</a>
+          <a class="nav-link" href="#library" data-view="library"><span>02</span>Library</a>
+          <a class="nav-link" href="#reflect" data-view="reflect"><span>03</span>Reflect</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="profile-link" type="button" data-action="profile"><span class="avatar">P</span><span>Prayag’s space</span><span class="chevron">↗</span></button>
+          <p class="side-legal">Your entries stay private<br />on this device.</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="wordmark-mark">s</span> solace</div>
+          <div class="date-label">Tuesday, 21 October 2026</div>
+          <button class="icon-button" type="button" data-action="settings" aria-label="Open settings">☼</button>
+        </header>
+
+        <section class="view active" id="home-view" data-section="home">
+          <div class="welcome-row reveal">
+            <div><p class="eyebrow" id="welcome-label">Good evening, Prayag</p><h1>Make room for<br /><em>what matters.</em></h1></div>
+            <div class="moon-mark" aria-hidden="true"><span></span></div>
+          </div>
+
+          <div class="today-grid">
+            <article class="ritual-card reveal delay-1">
+              <div class="card-top"><span class="eyebrow">Your intention</span><button class="more-button" type="button" aria-label="More options">•••</button></div>
+              <p class="intention" id="current-intention">“I move with clarity<br />and quiet confidence.”</p>
+              <div class="card-footer"><span>Set 3 days ago</span><button class="text-button" data-action="edit-intention">Edit intention ↗</button></div>
+            </article>
+            <article class="listen-card reveal delay-2">
+              <div class="listen-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core"></div></div>
+              <div class="listen-copy"><span class="eyebrow">A moment for you · 08 min</span><h2>Arrive in<br /><em>the present.</em></h2><p>A guided reset for a busy mind.</p><button class="play-button" data-action="play" aria-label="Play Arrive in the present"><span>▶</span> Begin listening</button></div>
+            </article>
+          </div>
+
+          <div class="section-heading reveal delay-2"><div><p class="eyebrow">A small rhythm</p><h2>Keep showing up.</h2></div><span class="progress-copy">03 / 07 days</span></div>
+          <div class="week-row reveal delay-3" aria-label="Weekly progress"><div class="day done"><span>M</span><i>✓</i></div><div class="day done"><span>T</span><i>✓</i></div><div class="day done"><span>W</span><i>✓</i></div><div class="day current"><span>T</span><i></i></div><div class="day"><span>F</span><i></i></div><div class="day"><span>S</span><i></i></div><div class="day"><span>S</span><i></i></div></div>
+          <div class="prompt-strip reveal delay-3"><span class="prompt-glyph">✳</span><p><span>Try this tonight</span> Write one sentence about how you want tomorrow to feel.</p><button class="arrow-button" data-action="reflect">→</button></div>
+        </section>
+
+        <section class="view" id="library-view" data-section="library"><div class="page-heading reveal"><p class="eyebrow">Your library</p><h1>Listen to<br /><em>yourself.</em></h1><p class="lede">Audio practices for the moments that ask for a little more space.</p></div><div class="filter-row reveal delay-1"><button class="filter active">All</button><button class="filter">Focus</button><button class="filter">Sleep</button><button class="filter">Confidence</button></div><div class="library-list reveal delay-2"><button class="audio-row" data-action="play"><span class="audio-number">01</span><span class="audio-orb orb-sand"></span><span class="audio-title"><strong>Arrive in the present</strong><small>Reset · 08 min</small></span><span class="row-play">▶</span></button><button class="audio-row" data-action="play"><span class="audio-number">02</span><span class="audio-orb orb-sage"></span><span class="audio-title"><strong>A clear next step</strong><small>Focus · 12 min</small></span><span class="row-play">▶</span></button><button class="audio-row" data-action="play"><span class="audio-number">03</span><span class="audio-orb orb-night"></span><span class="audio-title"><strong>Let the day soften</strong><small>Sleep · 18 min</small></span><span class="row-play">▶</span></button></div></section>
+
+        <section class="view" id="reflect-view" data-section="reflect"><div class="page-heading reveal"><p class="eyebrow">A private page</p><h1>Notice what<br /><em>is unfolding.</em></h1><p class="lede">Reflection makes a feeling easier to return to.</p></div><div class="reflection-editor reveal delay-1"><label for="reflection">What is here today?</label><textarea id="reflection" placeholder="Let the first thought arrive without editing it..."></textarea><div class="editor-footer"><span>Saved only on this device</span><button class="primary-button" data-action="save-reflection">Save reflection</button></div></div><div class="saved-reflections reveal delay-2"><p class="eyebrow">Recent reflections</p><div id="reflection-list"><p class="empty-reflection">Your first reflection will appear here.</p></div></div></section>
+
+        <div class="player" aria-live="polite"><div class="player-art"><div class="tiny-orbit"></div></div><div class="player-meta"><strong id="player-title">Arrive in the present</strong><span id="player-state">Ready when you are · 08 min</span></div><button class="player-control" data-action="play" aria-label="Play audio">▶</button><div class="player-progress"><span></span></div></div>
+      </main>
+    </div>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>

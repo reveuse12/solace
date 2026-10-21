@@ -1,0 +1,3 @@
+export default function TermsPage() {
+  return <main className="mx-auto min-h-dvh max-w-2xl px-6 py-20 text-zinc-800"><p className="mb-4 text-xs uppercase tracking-[.2em] text-zinc-500">Solace</p><h1 className="text-5xl font-semibold tracking-tight">Terms</h1><p className="mt-8 leading-7 text-zinc-600">Solace is a personal reflection and wellbeing tool. It does not provide medical, psychological, financial, or legal advice. Use the service responsibly and keep your account credentials private.</p><a className="mt-10 inline-block underline underline-offset-4" href="/">Return to Solace</a></main>;
+}
