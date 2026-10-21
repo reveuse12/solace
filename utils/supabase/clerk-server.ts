@@ -1,6 +1,5 @@
-import { createServerClient } from "@supabase/ssr";
+import { createClient } from "@supabase/supabase-js";
 import { auth } from "@clerk/nextjs/server";
-import { cookies } from "next/headers";
 
 /**
  * Supabase client authenticated with the current Clerk user's JWT.
@@ -13,21 +12,15 @@ export async function createClerkSupabaseClient() {
   const token = await getToken({ template: "supabase" });
   if (!token) throw new Error("Missing Clerk Supabase JWT template");
 
-  const cookieStore = await cookies();
-  const client = createServerClient(
+  const client = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
     {
       accessToken: async () => token,
-      cookies: {
-        getAll: () => cookieStore.getAll(),
-        setAll: (cookiesToSet) => {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options));
-          } catch {
-            // Server Components cannot write cookies.
-          }
-        },
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
+        detectSessionInUrl: false,
       },
     },
   );
