@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { createClerkSupabaseClient } from "@/utils/supabase/clerk-server";
+import { rateLimit } from "@/utils/rate-limit";
 
 export async function GET() {
   const { userId } = await auth();
@@ -15,6 +16,7 @@ export async function GET() {
 export async function POST(request: Request) {
   const { userId } = await auth();
   if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!rateLimit(`reflection:${userId}`)) return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   const body = await request.json();
   const text = typeof body.body === "string" ? body.body.trim().slice(0, 5000) : "";
   if (!text) return NextResponse.json({ error: "Reflection is required" }, { status: 400 });

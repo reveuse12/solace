@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { createClerkSupabaseClient } from "@/utils/supabase/clerk-server";
 
-const tables = ["profiles", "intentions", "reflections", "visualizations", "listening_progress", "favorites", "reminders"] as const;
+const tables = ["profiles", "intentions", "reflections", "visualizations", "listening_progress", "favorites", "reminders", "push_subscriptions"] as const;
 
 export async function GET() {
   const { userId } = await auth();
