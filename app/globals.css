@@ -26,3 +26,5 @@ body {
 }
 
 button, a, input, textarea, select { font: inherit; }
+
+@keyframes breathe { 50% { transform: scale(1.08); } }
