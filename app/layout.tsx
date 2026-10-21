@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { PwaRegister } from "@/components/pwa-register";
+import { PwaInstall } from "@/components/pwa-install";
 
 
 const geistSans = Geist({
@@ -18,7 +19,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Solace — Make space for what matters",
   description: "A quiet space for intentions, audio rituals, and reflection.",
+  appleWebApp: { capable: true, title: "Solace", statusBarStyle: "default" },
 };
+
+export const viewport = { themeColor: "#f4eee8", width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -38,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </Show>
           </header>
           <PwaRegister />
+          <PwaInstall />
           {children}
         </ClerkProvider>
       </body>

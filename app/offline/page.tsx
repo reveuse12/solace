@@ -1,0 +1,3 @@
+export default function OfflinePage() {
+  return <main className="grid min-h-screen place-items-center bg-[#f4eee8] px-6 text-center text-[#252321]"><div><div className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-[#252321] font-serif text-3xl italic">s</div><p className="mt-8 text-[10px] uppercase tracking-[.18em] text-[#827b73]">Solace</p><h1 className="mt-4 text-4xl font-semibold tracking-[-.06em]">A quiet moment,<br /><em className="font-serif font-medium">offline.</em></h1><p className="mx-auto mt-5 max-w-sm text-sm leading-7 text-[#827b73]">Reconnect to load your latest practice. Your saved shell will be ready when you return.</p></div></main>;
+}
