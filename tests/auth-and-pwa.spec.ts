@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
 
-test("signed-out visitors are sent to Clerk sign-in", async ({ page }) => {
+test("signed-out visitors see the public landing page", async ({ page }) => {
   await page.goto("/");
-  await expect(page).toHaveURL(/\/sign-in/);
-  await expect(page.getByRole("button", { name: "Sign in" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Sign up" })).toBeVisible();
+  await expect(page).toHaveURL(/127\.0\.0\.1:\d+\/$/);
+  await expect(page.getByText("Make space for")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Begin your practice" })).toBeVisible();
 });
 
 test("PWA manifest is served with Solace metadata", async ({ request }) => {
