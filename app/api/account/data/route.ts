@@ -18,3 +18,21 @@ export async function DELETE() {
   }
   return NextResponse.json({ deleted: true });
 }
+
+export async function POST(request: Request) {
+  const { userId } = await auth();
+  if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const body = await request.json().catch(() => null);
+  const data = body?.data;
+  if (!data || typeof data !== "object") return NextResponse.json({ error: "Invalid backup file" }, { status: 400 });
+  const { client } = await createClerkSupabaseClient();
+  if (!client) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const allowed = ["profiles", "intentions", "reflections", "visualizations", "listening_progress", "favorites", "reminders"] as const;
+  for (const table of allowed) {
+    if (!Array.isArray(data[table]) || data[table].length === 0) continue;
+    const rows = data[table].map((row: Record<string, unknown>) => ({ ...row, clerk_user_id: userId }));
+    const { error } = await client.from(table).upsert(rows);
+    if (error) return NextResponse.json({ error: `Could not restore ${table}` }, { status: 502 });
+  }
+  return NextResponse.json({ restored: true });
+}

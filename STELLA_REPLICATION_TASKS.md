@@ -82,7 +82,8 @@ The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is n
 - [ ] Add closed-app Web Push delivery
 - [x] Add persisted appearance preference (warm rose / midnight) in profile settings
 - [x] Add profile photo URL persistence in Profile & settings
-- [ ] Add backup/restore, help, and expanded privacy screens
+- [x] Add authenticated backup restore for supported user tables
+- [ ] Add help and expanded privacy screens
 - [ ] Add original SVG icon system matching the observed information architecture
 
 #### P5 — Subscription and release hardening
