@@ -68,6 +68,7 @@ The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is n
 
 #### P3 — Audio system
 
+- [x] Add browser narration playback for the featured practice
 - [ ] Add original or licensed audio tracks
 - [ ] Add persistent player, queue, seek, skip, speed, favorites, and resume position
 - [ ] Add mini-player and full-screen player
