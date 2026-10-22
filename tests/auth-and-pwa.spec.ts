@@ -35,3 +35,8 @@ test("sign-in page exposes the expected Clerk entry points", async ({ page }) =>
   await expect(page).toHaveTitle(/Solace/);
   await expect(page.getByRole("button", { name: "Sign in" })).toBeVisible();
 });
+
+test("account restore rejects anonymous access", async ({ request }) => {
+  const response = await request.post("/api/account/data", { data: { data: { profiles: [] } } });
+  expect(response.status()).toBe(401);
+});
