@@ -80,7 +80,8 @@ The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is n
 - [x] Add reminder edit/delete controls
 - [x] Add local notification history UI for browser reminders
 - [ ] Add closed-app Web Push delivery
-- [ ] Add profile photo, preferences, themes, backup/restore, help, and privacy screens
+- [x] Add persisted appearance preference (warm rose / midnight) in profile settings
+- [ ] Add profile photo, backup/restore, help, and expanded privacy screens
 - [ ] Add original SVG icon system matching the observed information architecture
 
 #### P5 — Subscription and release hardening
