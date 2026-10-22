@@ -73,6 +73,7 @@ The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is n
 
 #### P4 — Native visual and account flows
 
+- [x] Add guided visualization templates, saved sessions, completion state, and progress cards
 - [ ] Rebuild full visualization session and summary screens
 - [ ] Add reminder list, edit/delete, notification history, and Web Push
 - [ ] Add profile photo, preferences, themes, backup/restore, help, and privacy screens
