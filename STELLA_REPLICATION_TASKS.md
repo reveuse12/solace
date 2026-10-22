@@ -103,3 +103,8 @@ The local APK archive confirms product areas, resource names, layouts, permissio
 ## Definition of done
 
 The replication milestone is complete when a dedicated authenticated Playwright account can move through onboarding, create a desire, generate or load a story, play and resume audio, complete a visualization, save a reflection, manage reminders, view the manifestation wall, edit profile/settings, and exercise account/data controls on mobile and desktop.
+
+## Release prerequisites
+
+- Copy `.env.example` into the deployment environment and provide Clerk, Supabase, and VAPID values.
+- Generate a dedicated Clerk Playwright storage state and set `PLAYWRIGHT_AUTH_STATE` before running the authenticated journey.
