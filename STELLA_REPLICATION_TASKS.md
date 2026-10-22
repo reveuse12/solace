@@ -53,7 +53,7 @@ The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is n
 - [x] Add persistent `desires` table and authenticated create/list/archive API
 - [x] Add persistent manifestation history and edit/search/filter/share flows; detail screen remains
 - [x] Add create, edit, archive, delete, list, search, filter, and share flows
-- [ ] Add a dedicated manifestation detail screen
+- [x] Add a dedicated manifestation detail screen
 - [ ] Add a persistent Wall of Manifestations
 - [ ] Add empty, loading, error, and optimistic-update states
 
