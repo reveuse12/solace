@@ -26,29 +26,30 @@ Status: 2026-10-22
 
 ### Partial
 
-- [ ] Home screen has a manifestation-first UI, but the desire is currently local state rather than a complete persistent desire model
+- [ ] Home screen has a manifestation-first UI; persistent create/list/archive is implemented, while edit/detail/search/filter/share/history remain
 - [ ] Affirmations and Wall of Manifestations are UI flows; they need Supabase persistence and account history
 - [ ] Future-self visualization has an entry point, but the complete guided session and summary flow is not finished
 - [ ] Audio cards and play state exist, but there are no licensed tracks, queue, seek, or resume persistence
 - [ ] Profile/settings works, but the full native-style settings and theme system is incomplete
-- [ ] The mobile shell is close to the reference direction, but exact APK runtime behavior has not been verified
+- [ ] The mobile shell is close to the reference direction; live runtime capture is now active and the remaining screens are still being mapped
 
 ### Pending by priority
 
 #### P0 — Verify the reference runtime
 
-- [ ] Capture Stella on a connected Android device or emulator — **blocked: `adb` is not installed on this machine**
+- [x] Capture Stella on a connected Android device or emulator — **device authorized; splash, consent, and home screens captured**
 - [ ] Record every screen, navigation action, bottom sheet, dialog, loading state, and error state
 - [ ] Confirm onboarding questions, bottom-nav labels, home hierarchy, and back behavior
 - [ ] Confirm exact icon roles and visual states without shipping extracted proprietary assets
 
 P0 static audit completed from the local APK archive. The package contains native layouts for desires, music, playlists, visualization, thoughts, reminders, notifications, profile, themes, settings, backup/restore, help, and subscription/pro flows. It also contains app-specific icon resources for navigation, playlists, statistics, settings, filters, search, favorites, sharing, editing, deletion, notifications, and playback. This is shipped-artifact evidence only; it does not establish runtime order or behavior.
 
-To finish P0, install Android Platform Tools and make the connected device visible to `adb`, then capture a fresh runtime walkthrough. The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is not configured.
+The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is not configured. Runtime findings are now being recorded from the authorized Android device.
 
 #### P1 — Desire and manifestation model
 
-- [ ] Add persistent `desires` and manifestation history tables
+- [x] Add persistent `desires` table and authenticated create/list/archive API
+- [ ] Add persistent manifestation history and edit/detail/search/filter/share flows
 - [ ] Add create, edit, archive, delete, list, detail, search, filter, and share flows
 - [ ] Add a persistent Wall of Manifestations
 - [ ] Add empty, loading, error, and optimistic-update states
