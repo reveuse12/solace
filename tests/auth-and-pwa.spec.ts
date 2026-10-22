@@ -40,3 +40,12 @@ test("account restore rejects anonymous access", async ({ request }) => {
   const response = await request.post("/api/account/data", { data: { data: { profiles: [] } } });
   expect(response.status()).toBe(401);
 });
+
+test("public landing remains usable at a mobile viewport", async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true });
+  const page = await context.newPage();
+  await page.goto("/");
+  await expect(page.getByRole("button", { name: "Begin your practice" })).toBeVisible();
+  await expect(page.locator("body")).toBeVisible();
+  await context.close();
+});
