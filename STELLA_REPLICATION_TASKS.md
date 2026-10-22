@@ -46,7 +46,7 @@ P0 static audit completed from the local APK archive. The package contains nativ
 
 Profile location persistence now has a pending migration in `supabase/migrations/005_profile_context.sql`; run it in the linked Supabase project before relying on saved location.
 
-The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is not configured. Runtime findings are now being recorded from the authorized Android device.
+The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is not configured. Runtime findings are now being recorded from the authorized Android device. On 2026-10-22 the device was connected and the captured screen showed the Android lock screen/launcher rather than Stella, so no additional Stella screen was added from that capture.
 
 #### P1 — Desire and manifestation model
 
