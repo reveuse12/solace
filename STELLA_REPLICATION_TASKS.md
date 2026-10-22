@@ -39,7 +39,7 @@ Status: 2026-10-22
 
 - [x] Capture Stella on a connected Android device or emulator — **device authorized; splash, consent, and home screens captured**
 - [ ] Record every screen, navigation action, bottom sheet, dialog, loading state, and error state
-- [x] Confirm onboarding questions, bottom-nav labels, home hierarchy, and back behavior — location question observed; remaining runtime screens still being mapped
+- [x] Confirm onboarding questions, bottom-nav labels, home hierarchy, and back behavior — live device audit completed through the personalized home screen with demo data (Prayag, Mumbai, Mom, AI Engineer, career/wealth focus, London dream city)
 - [ ] Confirm exact icon roles and visual states without shipping extracted proprietary assets
 
 P0 static audit completed from the local APK archive. The package contains native layouts for desires, music, playlists, visualization, thoughts, reminders, notifications, profile, themes, settings, backup/restore, help, and subscription/pro flows. It also contains app-specific icon resources for navigation, playlists, statistics, settings, filters, search, favorites, sharing, editing, deletion, notifications, and playback. This is shipped-artifact evidence only; it does not establish runtime order or behavior.
