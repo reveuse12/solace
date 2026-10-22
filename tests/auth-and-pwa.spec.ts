@@ -49,3 +49,12 @@ test("public landing remains usable at a mobile viewport", async ({ browser }) =
   await expect(page.locator("body")).toBeVisible();
   await context.close();
 });
+
+test("offline fallback and service worker assets are available", async ({ request }) => {
+  const sw = await request.get("/sw.js");
+  expect(sw.ok()).toBeTruthy();
+  expect(await sw.text()).toContain("solace-next-shell");
+  const offline = await request.get("/offline");
+  expect(offline.ok()).toBeTruthy();
+  expect(await offline.text()).toContain("Solace");
+});
