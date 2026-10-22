@@ -39,3 +39,6 @@ button, a, input, textarea, select { font: inherit; }
   main > section { padding-top: 2.75rem !important; }
   main > section h1 { font-size: 3.25rem; }
 }
+@media (max-width: 1023px) {
+  body { padding-bottom: env(safe-area-inset-bottom); }
+}
