@@ -54,8 +54,9 @@ The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is n
 - [x] Add persistent manifestation history and edit/search/filter/share flows; detail screen remains
 - [x] Add create, edit, archive, delete, list, search, filter, and share flows
 - [x] Add a dedicated manifestation detail screen
-- [ ] Add a persistent Wall of Manifestations
-- [ ] Add empty, loading, error, and optimistic-update states
+- [x] Add a persistent Wall of Manifestations
+- [x] Add empty, loading, and error states for manifestations
+- [ ] Add broader optimistic-update coverage
 
 #### P2 — Personalized story generation
 
