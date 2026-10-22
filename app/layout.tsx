@@ -32,12 +32,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <ClerkProvider>
-          <header className="flex h-16 items-center justify-end gap-4 border-b border-[#d9d0c6] bg-[#f4eee8] px-4 text-[#252321]">
-            <Show when="signed-out">
+          <Show when="signed-out">
+            <header className="flex h-16 items-center justify-end gap-4 border-b border-[#d9d0c6] bg-[#f4eee8] px-4 text-[#252321]">
               <SignInButton />
               <SignUpButton />
-            </Show>
-          </header>
+            </header>
+          </Show>
           <PwaRegister />
           <PwaInstall />
           {children}
