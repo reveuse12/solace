@@ -56,7 +56,7 @@ The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is n
 - [x] Add a dedicated manifestation detail screen
 - [x] Add a persistent Wall of Manifestations
 - [x] Add empty, loading, and error states for manifestations
-- [ ] Add broader optimistic-update coverage
+- [x] Add optimistic manifestation creation with rollback on failure
 
 #### P2 — Personalized story generation
 
