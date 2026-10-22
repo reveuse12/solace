@@ -37,10 +37,14 @@ Status: 2026-10-22
 
 #### P0 — Verify the reference runtime
 
-- [ ] Capture Stella on a connected Android device or emulator
+- [ ] Capture Stella on a connected Android device or emulator — **blocked: `adb` is not installed on this machine**
 - [ ] Record every screen, navigation action, bottom sheet, dialog, loading state, and error state
 - [ ] Confirm onboarding questions, bottom-nav labels, home hierarchy, and back behavior
 - [ ] Confirm exact icon roles and visual states without shipping extracted proprietary assets
+
+P0 static audit completed from the local APK archive. The package contains native layouts for desires, music, playlists, visualization, thoughts, reminders, notifications, profile, themes, settings, backup/restore, help, and subscription/pro flows. It also contains app-specific icon resources for navigation, playlists, statistics, settings, filters, search, favorites, sharing, editing, deletion, notifications, and playback. This is shipped-artifact evidence only; it does not establish runtime order or behavior.
+
+To finish P0, install Android Platform Tools and make the connected device visible to `adb`, then capture a fresh runtime walkthrough. The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is not configured.
 
 #### P1 — Desire and manifestation model
 
