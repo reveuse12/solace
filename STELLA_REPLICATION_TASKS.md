@@ -77,7 +77,8 @@ The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is n
 - [ ] Rebuild full visualization session and summary screens
 - [x] Add reminder creation, list, enable/pause controls, and browser notification permission UI
 - [x] Add reminder edit/delete controls
-- [ ] Add notification history and Web Push
+- [x] Add local notification history UI for browser reminders
+- [ ] Add closed-app Web Push delivery
 - [ ] Add profile photo, preferences, themes, backup/restore, help, and privacy screens
 - [ ] Add original SVG icon system matching the observed information architecture
 
