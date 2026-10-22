@@ -1,4 +1,4 @@
-import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { ClerkProvider, Show, SignInButton, SignUpButton } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -36,9 +36,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Show when="signed-out">
               <SignInButton />
               <SignUpButton />
-            </Show>
-            <Show when="signed-in">
-              <UserButton />
             </Show>
           </header>
           <PwaRegister />
