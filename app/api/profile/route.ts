@@ -22,6 +22,7 @@ export async function POST(request: Request) {
     display_name: typeof body.displayName === "string" ? body.displayName.trim().slice(0, 120) : null,
     focus: typeof body.focus === "string" ? body.focus.trim().slice(0, 80) : null,
     practice_time: typeof body.practiceTime === "string" ? body.practiceTime.trim().slice(0, 80) : null,
+    location: typeof body.location === "string" ? body.location.trim().slice(0, 120) : null,
     avatar_url: typeof body.avatarUrl === "string" ? body.avatarUrl.trim().slice(0, 500) : null,
     privacy_consent_at: body.privacyConsent === true ? new Date().toISOString() : null,
     privacy_consent_version: body.privacyConsent === true ? "2026-10-21" : null,

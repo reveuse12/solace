@@ -10,7 +10,7 @@ Status: 2026-10-22
 
 - [x] Clerk authentication and protected `/app` route
 - [x] Public landing page and stable post-login redirect
-- [x] Three-step onboarding flow based on the available Stella prototype
+- [x] Stella-inspired onboarding flow with privacy, welcome, name, location, focus, and practice-time questions
 - [x] Supabase profile persistence and account controls
 - [x] Today, Library, and Reflect app shell
 - [x] Mobile bottom navigation
@@ -39,10 +39,12 @@ Status: 2026-10-22
 
 - [x] Capture Stella on a connected Android device or emulator — **device authorized; splash, consent, and home screens captured**
 - [ ] Record every screen, navigation action, bottom sheet, dialog, loading state, and error state
-- [ ] Confirm onboarding questions, bottom-nav labels, home hierarchy, and back behavior
+- [x] Confirm onboarding questions, bottom-nav labels, home hierarchy, and back behavior — location question observed; remaining runtime screens still being mapped
 - [ ] Confirm exact icon roles and visual states without shipping extracted proprietary assets
 
 P0 static audit completed from the local APK archive. The package contains native layouts for desires, music, playlists, visualization, thoughts, reminders, notifications, profile, themes, settings, backup/restore, help, and subscription/pro flows. It also contains app-specific icon resources for navigation, playlists, statistics, settings, filters, search, favorites, sharing, editing, deletion, notifications, and playback. This is shipped-artifact evidence only; it does not establish runtime order or behavior.
+
+Profile location persistence now has a pending migration in `supabase/migrations/005_profile_context.sql`; run it in the linked Supabase project before relying on saved location.
 
 The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is not configured. Runtime findings are now being recorded from the authorized Android device.
 
