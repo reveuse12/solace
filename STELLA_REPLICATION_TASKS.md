@@ -59,6 +59,7 @@ The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is n
 
 #### P2 — Personalized story generation
 
+- [x] Add a personalized story card with regeneration and local persistence
 - [ ] Add a server-side generation endpoint and background job
 - [ ] Store story drafts, generation status, failures, and revisions
 - [ ] Add retry and regeneration behavior
