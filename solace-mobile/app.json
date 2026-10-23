@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Solace",
+    "slug": "solace",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.reveuse12.solace"
+    },
+    "android": {
+      "package": "com.reveuse12.solace"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "solace"
+  }
+}
