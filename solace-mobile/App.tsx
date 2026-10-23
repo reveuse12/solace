@@ -1,6 +1,16 @@
 import { StatusBar } from "expo-status-bar";
+import * as SecureStore from "expo-secure-store";
+import * as WebBrowser from "expo-web-browser";
+import { ClerkProvider, SignedIn, SignedOut, useAuth, useOAuth } from "@clerk/clerk-expo";
 import { useState } from "react";
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+
+WebBrowser.maybeCompleteAuthSession();
+
+const tokenCache = {
+  async getToken(key: string) { return SecureStore.getItemAsync(key); },
+  async saveToken(key: string, value: string) { return SecureStore.setItemAsync(key, value); },
+};
 
 const colors = { ink: "#4b1f38", muted: "#8e5c72", pink: "#f8dfe2", rose: "#e49bb8", surface: "#fff7fa" };
 

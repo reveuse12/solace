@@ -16,6 +16,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "scheme": "solace"
+    "scheme": "solace",
+    "extra": {
+      "eas": {
+        "projectId": "5a21265e-480f-40c5-9a17-e9928f44a788"
+      }
+    }
   }
 }
