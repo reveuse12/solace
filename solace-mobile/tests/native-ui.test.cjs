@@ -155,3 +155,10 @@ test('notification permission is requested only after a user chooses a reminder 
  await act(async()=>renderer.root.findByType('TextInput').props.onChangeText('25:00'));await click(renderer,'Save reminder & enable notifications');assert.match(text(renderer.toJSON()),/Use a time/);assert.equal(h.permissionCalls,0);
  await act(async()=>renderer.root.findByType('TextInput').props.onChangeText('08:30'));await click(renderer,'Save reminder & enable notifications');assert.equal(h.permissionCalls,1);assert.equal(h.requests.find(r=>r.route==='/api/reminders'&&r.options).options.body.timeLocal,'08:30');assert.equal(h.routes.length,1);await act(async()=>renderer.unmount());
 });
+
+test('a successful save notice uses a supported Android live announcement without a status accessibilityRole',async()=>{
+ const loader=createLoader({'react-native':{...native,RefreshControl:'RefreshControl'},'react-native-safe-area-context':safeArea,'expo-status-bar':{StatusBar:'StatusBar'},[absolute('src/lib/workspace.tsx')]:{useWorkspace:()=>({theme:'warm',error:'',notice:'Saved to your account',refresh:async()=>{},clearError(){}})}});
+ const {Screen}=loader('src/components/ui.tsx');let renderer;
+ await act(async()=>{renderer=create(React.createElement(Screen,{title:'Today',label:'Your space'}));});
+ const notice=renderer.root.findAllByType('Text').find(node=>text(node)==='Saved to your account');assert.ok(notice);assert.equal(notice.props.accessibilityLiveRegion,'polite');assert.equal(notice.props.accessibilityRole,undefined);await act(async()=>renderer.unmount());
+});
