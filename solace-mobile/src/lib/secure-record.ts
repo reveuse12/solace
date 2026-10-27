@@ -27,7 +27,9 @@ export function createSecureRecord<T>(storage: SecureStorage, key: string, valid
   return {
     load: () => queue(read),
     save: (value: T) => queue(async () => {
-      const chunks = JSON.stringify(value).match(/[\s\S]{1,400}/g) || [];
+      const points = Array.from(JSON.stringify(value));
+      const chunks: string[] = [];
+      for (let offset = 0; offset < points.length; offset += 400) chunks.push(points.slice(offset, offset + 400).join(""));
       if (!chunks.length || chunks.length > maxChunks) throw new Error("Your draft is too large to save on this phone.");
       const slot = await storage.getItemAsync(`${key}.pointer`) === "a" ? "b" : "a";
       for (let i = 0; i < chunks.length; i++) await storage.setItemAsync(`${key}.${slot}.${i}`, chunks[i]);

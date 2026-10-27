@@ -1,7 +1,7 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');
 const load=require('./load-ts.cjs')();const {createWritingDraftStore}=load('src/lib/writing-draft.ts');
 const value={version:1,clientId:'d5aa8d6f-6891-4c16-965d-10c23f5dce65',body:'🌱'.repeat(2500),title:'',prompt:'',editing:null};
-function fixture(){const data=new Map();let fail=false;return {data,fail:()=>{fail=true;},storage:{getItemAsync:async k=>data.get(k)??null,setItemAsync:async(k,v)=>{if(fail&&k.endsWith('.1'))throw Error('full');assert.ok(Buffer.byteLength(v)<2048);data.set(k,v);},deleteItemAsync:async k=>data.delete(k)}};}
+function fixture(){const data=new Map();let fail=false;return {data,fail:()=>{fail=true;},storage:{getItemAsync:async k=>data.get(k)??null,setItemAsync:async(k,v)=>{if(fail&&k.endsWith('.1'))throw Error('full');assert.ok(Buffer.byteLength(v)<2048);data.set(k,Buffer.from(v).toString("utf8"));},deleteItemAsync:async k=>data.delete(k)}};}
 test('a long ordinary writing draft and its retry identifier survive a fresh store/account isolation',async()=>{
  const f=fixture();await createWritingDraftStore(f.storage,'user_a','reflections').save(value);
  const read=await createWritingDraftStore(f.storage,'user_a','reflections').load();assert.equal(read.body,value.body);assert.equal(read.clientId,value.clientId);
