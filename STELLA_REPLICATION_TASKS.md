@@ -44,7 +44,7 @@ Status: 2026-10-22
 
 P0 static audit completed from the local APK archive. The package contains native layouts for desires, music, playlists, visualization, thoughts, reminders, notifications, profile, themes, settings, backup/restore, help, and subscription/pro flows. It also contains app-specific icon resources for navigation, playlists, statistics, settings, filters, search, favorites, sharing, editing, deletion, notifications, and playback. This is shipped-artifact evidence only; it does not establish runtime order or behavior.
 
-Profile location persistence now has a pending migration in `supabase/migrations/005_profile_context.sql`; run it in the linked Supabase project before relying on saved location.
+Profile location migration `supabase/migrations/005_profile_context.sql` was applied to the live Solace Supabase project on 2026-10-25. The API schema was refreshed and the profile location schema check returned HTTP 200.
 
 The deeper JADX inspection is separately blocked because `REA_JADX_MCP_JAR` is not configured. Runtime findings are now being recorded from the authorized Android device. On 2026-10-22 the device was connected and the captured screen showed the Android lock screen/launcher rather than Stella. A relaunch attempt left the system notification shade focused, so no additional Stella screen was added from that capture.
 
@@ -108,3 +108,15 @@ The replication milestone is complete when a dedicated authenticated Playwright 
 
 - Copy `.env.example` into the deployment environment and provide Clerk, Supabase, and VAPID values.
 - Generate a dedicated Clerk Playwright storage state and set `PLAYWRIGHT_AUTH_STATE` before running the authenticated journey.
+
+
+## Solace Android 1.2.0 — 2026-10-26
+- [x] Three-step onboarding with combined welcome/privacy, optional name/focus, and guided first manifestation; city/practice time moved to optional profile settings.
+- [x] Consent-based server profile completion; existing users no longer require optional fields to enter the app.
+- [x] Encrypted, chunked, per-account setup drafts with interrupted-write protection; failed entry saves retain text, and lost responses are checked before retrying insertion.
+- [x] Post-save optional reminders, explicit permission timing, and a write-later path.
+- [x] Read aloud for saved entries, visualizations and template stories, gentle pace, installed voice choices and lifecycle stop controls.
+- [x] Content-free local setup diagnostics with explicit sharing; no external telemetry or population-level retention claims.
+- [x] 37 automated tests, native lint and typecheck passed.
+- [x] EAS build fc3fee90-4ac0-49ba-ad3d-ac083bf8d62d FINISHED; downloaded APK is 1.2.0 / code 4, matches the 1.1.0 parsed signing certificate, includes all new feature markers and the configured public Clerk key, declares TTS discovery and no microphone permission.
+- [ ] Physical Android listening, real authenticated onboarding/sync, and phone reminder delivery remain unverified (no device/emulator connected).

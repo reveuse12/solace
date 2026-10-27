@@ -1,2 +1,4 @@
 alter table public.profiles
   add column if not exists location text;
+
+notify pgrst, 'reload schema';
